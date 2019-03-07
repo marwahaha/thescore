@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <el-input
-      placeholder="Type something"
-      prefix-icon="el-icon-search"
-      v-model="search"
-      @input="handleSearch"
-    >
-    </el-input>
-  </div>
+  <el-input
+    class='input'
+    placeholder="Search by Player"
+    prefix-icon="el-icon-search"
+    :clearable='true'
+    v-model="search"
+    @input="handleSearch"
+  >
+  </el-input>
 </template>
 
 <script>
@@ -33,5 +33,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+  .input {
+    width: 300px;
+  }
 </style>

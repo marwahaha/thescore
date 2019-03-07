@@ -2,11 +2,12 @@
   <div>
     <el-table
       :data="allData"
-      height="1000"
+      height="500"
       style="width: 100%">
       <el-table-column
         prop="Player"
         label="Player"
+        width='150'
         >
       </el-table-column>
       <el-table-column

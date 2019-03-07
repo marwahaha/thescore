@@ -1,9 +1,19 @@
 <template>
-  <div>
-    <el-button type="danger" @click='download'>Download</el-button>
-    <Search></Search>
-    <Table></Table>
-  </div>
+  <el-container>
+    <el-header class='header' height='70px'>
+      <img src='../assets/thescore-logo.png' />
+    </el-header>
+    <el-main>
+      <div class="search__wrapper">
+        <Search></Search>
+      </div>
+      <el-button class="download" @click='download'>Download</el-button>
+      <Table></Table>
+    </el-main>
+    <el-footer class='footer'>
+      Created by: Elijah Joseph-Young
+    </el-footer>
+  </el-container>
 </template>
 
 <script>
@@ -34,5 +44,25 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+.header {
+  background-image: linear-gradient(#114d9c, #000000);
+  // background-color: #1e1f20;
+  padding: 1rem 0;
+}
+.search__wrapper {
+  margin-bottom: 1rem;
+}
+.download {
+  background-color: #0078fd;
+  color: #ffffff;
+  &:hover {
+    background-color: #3290fc;
+    
+  }
+}
+.footer {
+  color: #000000;
+  font-size: 0.75rem;
+  padding: 1rem 0;
+}
 </style>
