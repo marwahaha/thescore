@@ -26,25 +26,28 @@ export default {
   name: 'app',
   components: {
     'table-view': TableView,
-    'search-bar': SearchBar
+    'search-bar': SearchBar,
   },
-  created () {
+  created() {
+    // Before we load the component, fetch the data from the backend
     this.$store.dispatch('fetch');
   },
   computed: {
-    fileContent: function () {
-      return "data:text/csv;charset=utf-8,Player,Team,POS,ATT/G,ATT,YDS,AVG,YDS/G,TD,LNG,1st,1st%,20+,40+,FUM\r\n" + this.$store.state.data.map(row => Object.values(row).map(item => `"${item}"`).join(",")).join("\r\n")
-    }
+    fileContent() {
+      // Keep a copy of whatever has been filtered and sorted from state to export to csv
+      return `data:text/csv;charset=utf-8,Player,Team,POS,ATT/G,ATT,YDS,AVG,YDS/G,TD,LNG,1st,1st%,20+,40+,FUM\r\n${this.$store.state.data.map(row => Object.values(row).map(item => `"${item}"`).join(',')).join('\r\n')}`;
+    },
   },
   methods: {
-    download: function () {
+    download() {
+      // Encode the csv content, create a temp link on the page to download the csv.
       const data = encodeURI(this.fileContent);
-      const link = document.createElement("a");
-      link.setAttribute("href", data);
-      link.setAttribute("download", "download.csv");
+      const link = document.createElement('a');
+      link.setAttribute('href', data);
+      link.setAttribute('download', 'download.csv');
       link.click();
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -57,7 +60,6 @@ html, body, #app {
 }
 .header {
   background-image: linear-gradient(#114d9c, #000000);
-  // background-color: #1e1f20;
   padding: 1rem 0;
 }
 .search {
@@ -68,7 +70,7 @@ html, body, #app {
   color: #ffffff;
   &:hover {
     background-color: #3290fc;
-    
+
   }
 }
 .footer {

@@ -16,19 +16,20 @@ export default {
   name: 'SearchBar',
   computed: {
     search: {
-      get () {
+      get() {
         return this.$store.state.search;
       },
-      set (val) {
+      set(val) {
         this.$store.commit('search', val);
-      }
-    }
+      },
+    },
   },
   methods: {
-    handleSearch: function (input) {
-      this.$store.dispatch('fetch')
-    }
-  }
+    handleSearch(input) {
+      // On input changes, call the backend (this could also be on a change event for performance)
+      this.$store.dispatch('fetch');
+    },
+  },
 };
 </script>
 

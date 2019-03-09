@@ -93,26 +93,28 @@
 </template>
 
 <script>
-  export default {
-    name: 'TableView',
-    data () {
-      return {
-        sortOrder: ['descending', 'ascending', null]
-      }
+export default {
+  name: 'TableView',
+  data() {
+    return {
+      sortOrder: ['descending', 'ascending', null],
+    };
+  },
+  computed: {
+    allData: {
+      get() {
+        return this.$store.state.data;
+      },
     },
-    computed: {
-      allData: {
-        get () {
-          return this.$store.state.data
-        }
-      }
+  },
+  methods: {
+    handleSort(sortOptions) {
+      // This function is called whenever a sort on a table column is clicked.
+      // First commit our order and sort by prop to state, then let the backend handle the rest
+      this.$store.commit('filterOrder', sortOptions.order);
+      this.$store.commit('filterProp', sortOptions.prop);
+      this.$store.dispatch('fetch');
     },
-    methods: {
-      handleSort: function(sortOptions) {
-        this.$store.commit('filterOrder', sortOptions.order)
-        this.$store.commit('filterProp', sortOptions.prop)
-        this.$store.dispatch('fetch')
-      }
-    }
-  }
+  },
+};
 </script>
