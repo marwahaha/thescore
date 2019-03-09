@@ -1,6 +1,7 @@
 <template>
   <div>
     <el-table
+      v-show='allData.length'
       :data="allData"
       height="500"
       style="width: 100%">

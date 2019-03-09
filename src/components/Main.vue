@@ -26,6 +26,9 @@ export default {
     Table,
     Search
   },
+  created () {
+    this.$store.dispatch('fetchAll');
+  },
   computed: {
     fileContent: function () {
       return "data:text/csv;charset=utf-8," + this.$store.state.data.map(row => Object.values(row).map(item => `"${item}"`).join(",")).join("\r\n")
