@@ -58,6 +58,7 @@ git clone https://github.com/elijy/thescore.git
 
 Step 2. Setup project
 ```
+cd thescore
 npm install
 ```
 
