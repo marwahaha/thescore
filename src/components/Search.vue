@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     handleSearch: function (input) {
-      this.$store.dispatch('filterList')
+      this.$store.dispatch('fetch')
     }
   }
 };

@@ -27,7 +27,7 @@ export default {
     Search
   },
   created () {
-    this.$store.dispatch('fetchAll');
+    this.$store.dispatch('fetch');
   },
   computed: {
     fileContent: function () {

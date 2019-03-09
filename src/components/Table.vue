@@ -108,7 +108,9 @@
     },
     methods: {
       handleSort: function(sortOptions) {
-        this.$store.dispatch('sortList', sortOptions)
+        this.$store.commit('filterOrder', sortOptions.order)
+        this.$store.commit('filterProp', sortOptions.prop)
+        this.$store.dispatch('fetch')
       }
     }
   }
