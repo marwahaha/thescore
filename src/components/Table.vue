@@ -57,6 +57,7 @@
         prop="Lng"
         label="LNG"
         sortable
+        :sort-method='sortLong'
         >
       </el-table-column>
       <el-table-column
@@ -95,6 +96,13 @@
         get () {
           return this.$store.state.data
         }
+      }
+    },
+    methods: {
+      sortLong: function (a, b) {
+        a = a["Lng"].toString();
+        b = b["Lng"].toString();
+        return a.localeCompare(b, 'en', {numeric: true})
       }
     }
   }
