@@ -4,7 +4,8 @@
       v-show='allData.length'
       :data="allData"
       height="500"
-      style="width: 100%">
+      style="width: 100%"
+      @sort-change="handleSort">
       <el-table-column
         prop="Player"
         label="Player"
@@ -34,7 +35,8 @@
       <el-table-column
         prop="Yds"
         label="YDS"
-        sortable
+        sortable='custom'
+        :sort-orders="sortOrder"
         >
       </el-table-column>
       <el-table-column
@@ -50,14 +52,15 @@
       <el-table-column
         prop="TD"
         label="TD"
-        sortable
+        sortable='custom'
+        :sort-orders="sortOrder"
         >
       </el-table-column>
       <el-table-column
         prop="Lng"
         label="LNG"
-        sortable
-        :sort-method='sortLong'
+        sortable='custom'
+        :sort-orders="sortOrder"
         >
       </el-table-column>
       <el-table-column
@@ -91,6 +94,11 @@
 
 <script>
   export default {
+    data () {
+      return {
+        sortOrder: ['descending', 'ascending', null]
+      }
+    },
     computed: {
       allData: {
         get () {
@@ -99,10 +107,8 @@
       }
     },
     methods: {
-      sortLong: function (a, b) {
-        a = a["Lng"].toString();
-        b = b["Lng"].toString();
-        return a.localeCompare(b, 'en', {numeric: true})
+      handleSort: function(sortOptions) {
+        this.$store.dispatch('sortList', sortOptions)
       }
     }
   }

@@ -38,6 +38,22 @@ export default new Vuex.Store({
         return true
       })
       commit('data', newData);
+    },
+    sortList ({ commit, state, dispatch }, options) {
+      if (options.order !== null) {
+        const newData = state.data.sort((a, b) => {
+          a = a[options.prop].toString().replace(',', '');
+          b = b[options.prop].toString().replace(',', '');;
+          if (options.order === 'ascending') {
+            return a.localeCompare(b, 'en', {numeric: true})
+          } else {
+            return b.localeCompare(a, 'en', {numeric: true})
+          }
+        })
+        commit('data', newData);
+      } else {
+        dispatch('fetchAll');
+      }
     }
   },
 });
