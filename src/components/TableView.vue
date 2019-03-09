@@ -94,6 +94,7 @@
 
 <script>
   export default {
+    name: 'TableView',
     data () {
       return {
         sortOrder: ['descending', 'ascending', null]

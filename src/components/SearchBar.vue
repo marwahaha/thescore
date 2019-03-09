@@ -13,7 +13,7 @@
 <script>
 
 export default {
-  name: 'Search',
+  name: 'SearchBar',
   computed: {
     search: {
       get () {
