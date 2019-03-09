@@ -27,7 +27,7 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    fetch({ commit, state, dispatch }) {
+    fetch({ commit, state }) {
       // Call our backend endpoint to get all the data, pass in search and filter queries if they are defined from the state.
       axios.get('/api/all', {
         params: {

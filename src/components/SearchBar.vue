@@ -25,7 +25,7 @@ export default {
     },
   },
   methods: {
-    handleSearch(input) {
+    handleSearch() {
       // On input changes, call the backend (this could also be on a change event for performance)
       this.$store.dispatch('fetch');
     },
