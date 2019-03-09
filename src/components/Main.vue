@@ -31,7 +31,7 @@ export default {
   },
   computed: {
     fileContent: function () {
-      return "data:text/csv;charset=utf-8," + this.$store.state.data.map(row => Object.values(row).map(item => `"${item}"`).join(",")).join("\r\n")
+      return "data:text/csv;charset=utf-8,Player,Team,POS,ATT/G,ATT,YDS,AVG,YDS/G,TD,LNG,1st,1st%,20+,40+,FUM\r\n" + this.$store.state.data.map(row => Object.values(row).map(item => `"${item}"`).join(",")).join("\r\n")
     }
   },
   methods: {
