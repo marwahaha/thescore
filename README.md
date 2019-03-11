@@ -67,4 +67,4 @@ Step 3. Run project
 npm run app
 ```
 
-Step 4. Go to `http:localhost:8080` to enjoy!
+Step 4. Go to `http://localhost:8080/` to enjoy!
