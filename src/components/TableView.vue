@@ -5,11 +5,14 @@
       :data="allData"
       height="500"
       style="width: 100%"
+      :stripe='true'
+      tooltip-effect='dark'
       @sort-change="handleSort">
       <el-table-column
         prop="Player"
         label="Player"
         width='150'
+        show-overflow-tooltip
         >
       </el-table-column>
       <el-table-column

@@ -24,7 +24,7 @@ export default new Vuex.Store({
     },
     filterProp(state, string) {
       state.filterProp = string;
-    },
+    }
   },
   actions: {
     fetch({ commit, state }) {

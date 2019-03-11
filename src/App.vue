@@ -35,7 +35,14 @@ export default {
   computed: {
     fileContent() {
       // Keep a copy of whatever has been filtered and sorted from state to export to csv
-      return `data:text/csv;charset=utf-8,Player,Team,POS,ATT/G,ATT,YDS,AVG,YDS/G,TD,LNG,1st,1st%,20+,40+,FUM\r\n${this.$store.state.data.map(row => Object.values(row).map(item => `"${item}"`).join(',')).join('\r\n')}`;
+      const prefix = 'data:text/csv;charset=utf-8,Player,Team,POS,ATT/G,ATT,YDS,AVG,YDS/G,TD,LNG,1st,1st%,20+,40+,FUM\r\n'
+      // Loop through the values of our array, turn each value into a string and comma seperate it, then seperate each row by a newline
+      return prefix + this.$store.state.data
+      .map(row => Object.values(row)
+        .map(item => `"${item}"`)
+        .join(',')
+      )
+      .join('\r\n');
     },
   },
   methods: {

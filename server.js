@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const PORT = 5000;
 
-// Pretending this data comes for a db somewhere
+// Pretending this data comes from a db somewhere
 const DATA = require('./rushing.json');
 
 // Function to filter list by player name
@@ -40,7 +40,7 @@ app.get('/api/all', (req, res) => {
     returnData = search(req.query.search);
   }
 
-  // If we a sort query, sort our list
+  // If we have a sort query, sort our list
   if (req.query.order) {
     returnData = sortData(returnData, { ...req.query });
   }
