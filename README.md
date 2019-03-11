@@ -68,3 +68,8 @@ npm run app
 ```
 
 Step 4. Go to `http://localhost:8080/` to enjoy!
+
+### A Quick Overview
+To whom it may concern, I wanted to give a brief overview of the structure of this project. This is a VueJS based application with an Express API used to serve the JSON file. The main file of the front-end can be found at `src/App.vue`, which relies on components built in the `src/components` folder. All the state management is done using VueX and can be found in `src/store.js`. Finally, The API code can be found under the `server.js` file and both the back and front end can be run with the single command `npm run app`. 
+
+
